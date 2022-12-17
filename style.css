@@ -1,0 +1,10 @@
+canvas {
+    animation-name: shadow;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    }
+    @keyframes shadow {
+    from{box-shadow: 1px 2px 40px rgb(98, 205, 247);}
+    
+    to{box-shadow: 1px 2px 40px rgb(90, 223, 130);}
+    }
