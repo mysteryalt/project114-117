@@ -1,3 +1,6 @@
+mustacheX = 0
+mustacheY = 0
+
 function setup() {
     canvas = createCanvas(400,300);
     canvas.center()
@@ -10,11 +13,11 @@ poseNet.on('pose', gotPoses );
 
 function draw() {
 image(video , 0 , 0 , 400 , 300);
-
+image(mustache , mustacheX -40 , mustacheY - 5, 70,70)
 }
 
 function preload() {
-
+mustache = loadImage('https://i.postimg.cc/mkzRXYxf/mustchio.png')
 }
 
 function modelLoaded() {
@@ -26,7 +29,12 @@ function gotPoses(results) {
     console.log(results);
     console.log("nose x = " + results[0].pose.nose.x);
     console.log("nose y = " + results[0].pose.nose.y)
-    }
+    
+    mustacheX = results[0].pose.nose.x;
+    mustacheY = results[0].pose.nose.y;
+}
     }
     
-    
+    function filterclick() {
+        save('mustache.png')
+        }
